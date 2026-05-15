@@ -1,6 +1,6 @@
 <?php
 // src/EventListener/RedirectionListener.php
-namespace Respinar\ContaoRedirectionBundle\EventListener;
+namespace Respinar\RedirectionBundle\EventListener;
 
 use Contao\CoreBundle\InsertTag\InsertTagParser;
 use Doctrine\DBAL\Connection;
