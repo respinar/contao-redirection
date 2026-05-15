@@ -1,6 +1,6 @@
 <?php
+
 declare(strict_types=1);
-// src/Resources/contao/dca/tl_redirect.php
 
 use Contao\DataContainer;
 use Contao\DC_Table;
@@ -12,18 +12,19 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
         'sql' => [
             'keys' => [
                 'id' => 'primary',
+                'source_url,active' => 'index',
             ],
         ],
     ],
     'list' => [
         'sorting' => [
-            'fields'       => ['tstamp'],
-			'flag'         => DataContainer::SORT_DESC,
-			'panelLayout'  => 'filter;sort,search,limit'
+            'fields' => ['tstamp'],
+            'flag' => DataContainer::SORT_DESC,
+            'panelLayout' => 'filter;sort,search,limit',
         ],
         'label' => [
-            'fields'       => ['tstamp','source_url','target_url','status_code'],
-			'showColumns'  => true,
+            'fields' => ['source_url', 'target_url', 'status_code'],
+            'showColumns' => true,
         ],
         'operations' => [
             'edit' => ['href' => 'act=edit', 'icon' => 'edit.svg'],
@@ -31,41 +32,46 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
         ],
     ],
     'palettes' => [
-        'default' => '{redirect_legend},source_url,target_url;{settings_legend},status_code,active',
+        'default' => '{redirect_legend},source_url,target_url,match_type;{settings_legend},status_code,active',
     ],
     'fields' => [
         'id' => [
-            'sql' => "int(10) unsigned NOT NULL auto_increment",
+            'sql' => 'int(10) unsigned NOT NULL auto_increment',
         ],
         'tstamp' => [
             'sql' => "int(10) unsigned NOT NULL default '0'",
         ],
         'source_url' => [
-            'label' => ['Source URL', 'The URL to redirect from'],
+            'label' => &$GLOBALS['TL_LANG']['tl_redirection']['source_url'],
             'inputType' => 'text',
-            'eval' => ['mandatory' => true, 'tl_class' => 'w50'],
+            'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255, 'decodeEntities' => true],
             'sql' => "varchar(255) NOT NULL default ''",
         ],
         'target_url' => [
-            'label' => ['Target URL', 'The URL to redirect to (ignored for 410)'],
-			'search'    => true,
-			'inputType' => 'text',
-			'eval'      => ['rgxp'=>'url', 'decodeEntities'=>true, 'maxlength'=>2048, 'dcaPicker'=>true, 'tl_class'=>'w50'],
-			'sql'       => "varchar(2048) NOT NULL default ''"
+            'label' => &$GLOBALS['TL_LANG']['tl_redirection']['target_url'],
+            'search' => true,
+            'inputType' => 'text',
+            'eval' => ['decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w50'],
+            'sql' => "varchar(2048) NOT NULL default ''",
+        ],
+        'match_type' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_redirection']['match_type'],
+            'inputType' => 'select',
+            'options' => ['exact', 'wildcard'],
+            'reference' => &$GLOBALS['TL_LANG']['tl_redirection']['match_types'],
+            'eval' => ['tl_class' => 'w50'],
+            'sql' => "varchar(16) NOT NULL default 'exact'",
         ],
         'status_code' => [
-            'label' => ['HTTP Status', 'The redirect status code'],
+            'label' => &$GLOBALS['TL_LANG']['tl_redirection']['status_code'],
             'inputType' => 'select',
-            'options' => [
-                '301' => '301 Permanent Redirect',
-                '302' => '302 Temporary Redirect',
-                '410' => '410 Gone', // Added 410 option
-            ],
+            'options' => ['301', '302', '410'],
+            'reference' => &$GLOBALS['TL_LANG']['tl_redirection']['status_codes'],
             'eval' => ['tl_class' => 'w50'],
             'sql' => "varchar(3) NOT NULL default '301'",
         ],
         'active' => [
-            'label' => ['Active', 'Enable this redirect'],
+            'label' => &$GLOBALS['TL_LANG']['tl_redirection']['active'],
             'inputType' => 'checkbox',
             'eval' => ['tl_class' => 'w50'],
             'sql' => "char(1) NOT NULL default '1'",
