@@ -13,9 +13,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Renders the "gone" (410) page. Modeled after Contao's error page controller,
- * but for the HTTP 410 Gone status. The page is created in the page tree under
- * a root page and is never reachable via a URL of its own; it is only rendered
- * when a redirection rule with status code 410 matches.
+ * but for the HTTP 410 Gone status. The page is created in the page tree under a
+ * root page and is never reachable via a URL of its own; it is only rendered when
+ * a redirection rule with status code 410 matches.
  */
 #[AsPage('error_410', path: false)]
 class GonePageController extends AbstractPageController implements ContentCompositionInterface
