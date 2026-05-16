@@ -11,7 +11,7 @@ A simple Contao extension for URL redirects (301, 302) and 410 (Gone) responses,
 ## Install
 
 ```bash
-composer require respinar/contao-redirection-bundle
+composer require respinar/contao-redirection
 ```
 
 ## Usage
