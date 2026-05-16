@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of Contao Redirection Bundle.
  *
- * (c) Hamid Peywasti 2025 <hamid@respinar.com>
+ * (c) Hamid Peywasti
  *
  * @license MIT
  */
