@@ -6,8 +6,8 @@ namespace Respinar\RedirectionBundle\EventListener;
 
 use Contao\CoreBundle\Exception\ResponseException;
 use Contao\CoreBundle\InsertTag\InsertTagParser;
-use Contao\CoreBundle\Routing\PageFinder;
 use Contao\CoreBundle\Routing\Page\PageRegistry;
+use Contao\CoreBundle\Routing\PageFinder;
 use Doctrine\DBAL\Connection;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
@@ -83,7 +83,7 @@ final class RedirectionListener
 
         try {
             $rows = $this->db->fetchAllAssociative(
-                'SELECT id, source_url, match_type, target_url, status_code
+                'SELECT id, source_url, wildcard, target_url, status_code
                  FROM tl_redirection
                  WHERE active = ?',
                 ['1'],
@@ -97,26 +97,38 @@ final class RedirectionListener
         foreach ($rows as $row) {
             $matches = [];
 
-            $matchType = $row['match_type'] ?? 'exact';
-
-            if ('wildcard' === $matchType) {
-                $pattern = '#^'.str_replace('#', '\#', $row['source_url']).'$#i';
+            if (!empty($row['wildcard'])) {
+                // Wildcard mode: convert * to .*
+                $pattern = $this->wildcardToRegex((string) $row['source_url']);
 
                 if (!preg_match($pattern, $uri, $matches)) {
                     continue;
                 }
             } else {
+                // Exact match
                 if ($row['source_url'] !== $uri) {
                     continue;
                 }
-
-                $matches = [];
             }
 
             $this->applyResponse($event, $row, $matches);
 
             return;
         }
+    }
+
+    /**
+     * Converts a simple wildcard pattern (* = any characters) into a regex.
+     */
+    private function wildcardToRegex(string $source): string
+    {
+        // Escape all regex special characters first
+        $escaped = preg_quote($source, '#');
+
+        // Turn the escaped \* back into a real wildcard
+        $pattern = str_replace('\*', '.*', $escaped);
+
+        return '#^'.$pattern.'$#i';
     }
 
     private function applyResponse(RequestEvent $event, array $row, array $matches): void
@@ -139,7 +151,7 @@ final class RedirectionListener
         $targetUrl = preg_replace_callback(
             '/\$(\d+)/',
             static fn (array $m): string => $matches[(int) $m[1]] ?? '',
-            $row['target_url'],
+            $row['target_url'] ?? '',
         );
 
         // Resolve insert tags (e.g. {{link_url::4}}, {{link::4}}).
@@ -147,7 +159,10 @@ final class RedirectionListener
 
         // Build an absolute URL from a relative destination.
         if (!$this->isAbsoluteUrl($targetUrl)) {
-            $targetUrl = $request->getSchemeAndHttpHost().$request->getBasePath().'/'.ltrim($targetUrl, '/');
+            $targetUrl = $request->getSchemeAndHttpHost()
+                .$request->getBasePath()
+                .'/'
+                .ltrim($targetUrl, '/');
         }
 
         $event->setResponse(new RedirectResponse($targetUrl, $statusCode));
