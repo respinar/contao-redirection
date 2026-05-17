@@ -38,11 +38,11 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
         ],
     ],
     'palettes' => [
-        '__selector__' => ['status_code'],
-        'default' => '{status_legend},status_code,wildcard;{redirect_legend},source_url,target_url;{settings_legend},active',
-        '301' => '{status_legend},status_code,wildcard;{redirect_legend},source_url,target_url;{settings_legend},active',
-        '302' => '{status_legend},status_code,wildcard;{redirect_legend},source_url,target_url;{settings_legend},active',
-        '410' => '{status_legend},status_code,wildcard;{redirect_legend},source_url;{settings_legend},active',
+        'default' => '{status_legend},status_code,wildcard;{redirect_legend},source_url;{settings_legend},active',
+    ],
+    'subpalettes' => [
+        'status_code_301' => 'target_url',
+        'status_code_302' => 'target_url',
     ],
     'fields' => [
         'id' => [
