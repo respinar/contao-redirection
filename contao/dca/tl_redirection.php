@@ -12,7 +12,7 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
         'sql' => [
             'keys' => [
                 'id' => 'primary',
-                'source_url,active' => 'index',
+                'source_url,published' => 'index',
             ],
         ],
     ],
@@ -26,19 +26,9 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
             'fields' => ['source_url', 'wildcard', 'target_url', 'status_code'],
             'showColumns' => true,
         ],
-        'operations' => [
-            'edit' => [
-                'href' => 'act=edit',
-                'icon' => 'edit.svg',
-            ],
-            'delete' => [
-                'href' => 'act=delete',
-                'icon' => 'delete.svg',
-            ],
-        ],
     ],
     'palettes' => [
-        'default' => '{status_legend},status_code,wildcard;{redirect_legend},source_url;{settings_legend},active',
+        'default' => '{status_legend},status_code,wildcard;{redirect_legend},source_url;{publish_legend},published',
     ],
     'subpalettes' => [
         'status_code_301' => 'target_url',
@@ -90,12 +80,12 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
             ],
             'sql' => "varchar(2048) NOT NULL default ''",
         ],
-        'active' => [
+        'published' => [
+            'toggle' => true,
+            'filter' => true,
             'inputType' => 'checkbox',
-            'eval' => [
-                'tl_class' => 'w50 m12',
-            ],
-            'sql' => "char(1) NOT NULL default '1'",
+            'eval' => ['doNotCopy' => true],
+            'sql' => ['type' => 'boolean', 'default' => false],
         ],
     ],
 ];
