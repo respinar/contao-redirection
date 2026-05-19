@@ -28,11 +28,10 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
         ],
     ],
     'palettes' => [
-        'default' => '{status_legend},status_code,wildcard;{redirect_legend},source_url;{publish_legend},published',
-    ],
-    'subpalettes' => [
-        'status_code_301' => 'target_url',
-        'status_code_302' => 'target_url',
+        '__selector__' => ['status_code'],
+        '301' => '{status_legend},status_code;{redirect_legend},source_url,wildcard,target_url;{publish_legend},published',
+        '302' => '{status_legend},status_code;{redirect_legend},source_url,wildcard,target_url;{publish_legend},published',
+        '410' => '{status_legend},status_code;{redirect_legend},source_url,wildcard;{publish_legend},published',
     ],
     'fields' => [
         'id' => [
@@ -45,27 +44,17 @@ $GLOBALS['TL_DCA']['tl_redirection'] = [
             'inputType' => 'select',
             'options' => ['301', '302', '410'],
             'reference' => &$GLOBALS['TL_LANG']['tl_redirection']['status_codes'],
-            'eval' => [
-                'submitOnChange' => true,
-                'tl_class' => 'w50',
-            ],
-            'sql' => "varchar(3) NOT NULL default '302'",
+            'eval' => ['submitOnChange' => true, 'tl_class' => 'w50'],
+            'sql' => "varchar(3) NOT NULL default '301'",
         ],
         'source_url' => [
             'inputType' => 'text',
-            'eval' => [
-                'mandatory' => true,
-                'tl_class' => 'w50',
-                'maxlength' => 255,
-                'decodeEntities' => true,
-            ],
+            'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255, 'decodeEntities' => true],
             'sql' => "varchar(255) NOT NULL default ''",
         ],
         'wildcard' => [
             'inputType' => 'checkbox',
-            'eval' => [
-                'tl_class' => 'w50 m12',
-            ],
+            'eval' => ['tl_class' => 'w50 m12'],
             'sql' => "char(1) NOT NULL default ''",
         ],
         'target_url' => [
