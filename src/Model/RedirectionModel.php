@@ -19,7 +19,6 @@ class RedirectionModel extends Model
 {
     protected static $strTable = 'tl_redirection';
 
-
     /**
      * Find published redirection items.
      *
@@ -27,9 +26,6 @@ class RedirectionModel extends Model
      */
     public static function findPublished(): Collection|null
     {
-        $t = static::$strTable;
-        $arrColumns = ["$t.published=1"];
-
-        return static::findBy($arrColumns);
+        return static::findBy(['published=?'], [1]);
     }
 }
