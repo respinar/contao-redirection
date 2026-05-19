@@ -8,8 +8,8 @@ use Contao\CoreBundle\Exception\ResponseException;
 use Contao\CoreBundle\InsertTag\InsertTagParser;
 use Contao\CoreBundle\Routing\Page\PageRegistry;
 use Contao\CoreBundle\Routing\PageFinder;
-use Doctrine\DBAL\Connection;
 use Psr\Log\LoggerInterface;
+use Respinar\RedirectionBundle\Repository\RedirectionRepository;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,9 +38,9 @@ final class RedirectionListener
     ];
 
     public function __construct(
-        private readonly Connection $db,
         private readonly InsertTagParser $insertTagParser,
         private readonly LoggerInterface $logger,
+        private readonly RedirectionRepository $redirectionRepository,
         private readonly PageFinder $pageFinder,
         private readonly PageRegistry $pageRegistry,
         private readonly HttpKernelInterface $httpKernel,
@@ -82,12 +82,7 @@ final class RedirectionListener
         }
 
         try {
-            $redirections = $this->db->fetchAllAssociative(
-                'SELECT id, source_url, wildcard, target_url, status_code
-                 FROM tl_redirection
-                 WHERE published = ?',
-                ['1'],
-            );
+            $redirections = $this->redirectionRepository->findPublished();
         } catch (\Throwable $e) {
             $this->logger->error('Redirection lookup failed.', ['exception' => $e]);
 
