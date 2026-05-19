@@ -85,7 +85,7 @@ final class RedirectionListener
             $rows = $this->db->fetchAllAssociative(
                 'SELECT id, source_url, wildcard, target_url, status_code
                  FROM tl_redirection
-                 WHERE active = ?',
+                 WHERE published = ?',
                 ['1'],
             );
         } catch (\Throwable $e) {
@@ -177,8 +177,8 @@ final class RedirectionListener
     }
 
     /**
-     * Renders the configured "error_410" page for the current site with a 410
-     * status code. Falls back to a plain 410 response if no such page exists.
+     * Renders the configured "error_410" page for the current site with a 410 status
+     * code. Falls back to a plain 410 response if no such page exists.
      */
     private function renderGoneResponse(Request $request): Response
     {
