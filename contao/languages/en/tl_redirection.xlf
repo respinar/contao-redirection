@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="contao/languages/en/tl_redirection.php" source-language="en">
+    <body>
+      <trans-unit id="tl_redirection.redirect_legend">
+        <source>Redirect</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.status_legend">
+        <source>Redirect type</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.settings_legend">
+        <source>Settings</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.source_url.0">
+        <source>Source URL</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.source_url.1">
+        <source>The URL path to redirect from, without a leading slash (e.g. old page or old-page).</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.target_url.0">
+        <source>Target URL</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.target_url.1">
+        <source>The destination URL. You may use insert tags (e.g. {{link_url::4}}) or wildcard placeholders ($1, $2, ...) for wildcard matches. Ignored for 410.</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.wildcard.0">
+        <source>Wildcard match</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.wildcard.1">
+        <source>Check to match the source URL using wildcard placeholders/regular expressions; leave unchecked for an exact match.</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.status_code.0">
+        <source>HTTP status</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.status_code.1">
+        <source>301 = permanent, 302 = temporary, 410 = gone.</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.published.0">
+        <source>Published</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.published.1">
+        <source>Published this redirect.</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.status_codes.301">
+        <source>301 - Permanent redirect</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.status_codes.302">
+        <source>302 - Temporary redirect</source>
+      </trans-unit>
+      <trans-unit id="tl_redirection.status_codes.410">
+        <source>410 - Gone</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
