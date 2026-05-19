@@ -5,7 +5,7 @@ declare(strict_types=1);
 /*
  * This file is part of Contao Redirection Bundle.
  *
- * (c) Hamid Peywasti 2025 <hamid@respinar.com>
+ * (c) Hamid Peywasti
  *
  * @license MIT
  */
@@ -18,7 +18,7 @@ use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
 class RespinarRedirectionBundle extends AbstractBundle
 {
-    public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder,): void
+    public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
         $containerConfigurator->import('../config/services.yaml');
     }
