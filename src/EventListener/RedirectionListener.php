@@ -82,7 +82,7 @@ final class RedirectionListener
         }
 
         try {
-            $rows = $this->db->fetchAllAssociative(
+            $redirections = $this->db->fetchAllAssociative(
                 'SELECT id, source_url, wildcard, target_url, status_code
                  FROM tl_redirection
                  WHERE published = ?',
@@ -94,24 +94,24 @@ final class RedirectionListener
             return;
         }
 
-        foreach ($rows as $row) {
+        foreach ($redirections as $redirection) {
             $matches = [];
 
-            if (!empty($row['wildcard'])) {
+            if (!empty($redirection['wildcard'])) {
                 // Wildcard mode: convert * to .*
-                $pattern = $this->wildcardToRegex((string) $row['source_url']);
+                $pattern = $this->wildcardToRegex((string) $redirection['source_url']);
 
                 if (!preg_match($pattern, $uri, $matches)) {
                     continue;
                 }
             } else {
                 // Exact match
-                if ($row['source_url'] !== $uri) {
+                if ($redirection['source_url'] !== $uri) {
                     continue;
                 }
             }
 
-            $this->applyResponse($event, $row, $matches);
+            $this->applyResponse($event, $redirection, $matches);
 
             return;
         }
@@ -131,9 +131,9 @@ final class RedirectionListener
         return '#^'.$pattern.'$#i';
     }
 
-    private function applyResponse(RequestEvent $event, array $row, array $matches): void
+    private function applyResponse(RequestEvent $event, array $redirection, array $matches): void
     {
-        $statusCode = (int) ($row['status_code'] ?? 301);
+        $statusCode = (int) ($redirection['status_code'] ?? 301);
 
         if (410 === $statusCode) {
             $event->setResponse($this->renderGoneResponse($event->getRequest()));
@@ -151,7 +151,7 @@ final class RedirectionListener
         $targetUrl = preg_replace_callback(
             '/\$(\d+)/',
             static fn (array $m): string => $matches[(int) $m[1]] ?? '',
-            $row['target_url'] ?? '',
+            $redirection['target_url'] ?? '',
         );
 
         // Resolve insert tags (e.g. {{link_url::4}}, {{link::4}}).
