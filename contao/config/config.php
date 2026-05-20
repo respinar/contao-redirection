@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-$GLOBALS['BE_MOD']['system']['redirection'] = [
-    'tables' => ['tl_redirection'],
+$GLOBALS['BE_MOD']['system']['redirects'] = [
+    'tables' => ['tl_redirects'],
 ];
