@@ -1,5 +1,5 @@
 {
-    "name": "respinar/contao-redirection",
+    "name": "respinar/contao-redirects",
     "description": " A simple Contao extension for URL redirects (301, 302) and 410 (Gone) responses. ",
     "keywords": ["contao", "bundle", "redirect", "301", "302", "410"],
     "type": "contao-bundle",
@@ -13,8 +13,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/respinar/contao-redirection/issues",
-        "source": "https://github.com/respinar/contao-redirection"
+        "issues": "https://github.com/respinar/contao-redirects/issues",
+        "source": "https://github.com/respinar/contao-redirects"
     },
     "require": {
         "php": "^8.3",
@@ -27,11 +27,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Respinar\\RedirectionBundle\\": "src/"
+            "Respinar\\RedirectsBundle\\": "src/"
         }
     },
     "extra": {
-        "contao-manager-plugin": "Respinar\\RedirectionBundle\\ContaoManager\\Plugin"
+        "contao-manager-plugin": "Respinar\\RedirectsBundle\\ContaoManager\\Plugin"
     },
     "config": {
         "allow-plugins": {
