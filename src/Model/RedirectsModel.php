@@ -10,19 +10,19 @@ declare(strict_types=1);
  * @license MIT
  */
 
-namespace Respinar\RedirectionBundle\Model;
+namespace Respinar\RedirectsBundle\Model;
 
 use Contao\Model;
 use Contao\Model\Collection;
 
-class RedirectionModel extends Model
+class RedirectsModel extends Model
 {
-    protected static $strTable = 'tl_redirection';
+    protected static $strTable = 'tl_redirects';
 
     /**
      * Find published redirection items.
      *
-     * @return Collection<RedirectionModel>|null A collection of models or null if there are no redirections
+     * @return Collection<RedirectsModel>|null A collection of models or null if there are no redirects
      */
     public static function findPublished(): Collection|null
     {
