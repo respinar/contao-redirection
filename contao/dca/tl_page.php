@@ -3,8 +3,11 @@
 declare(strict_types=1);
 
 /*
- * Adds the "error_410" page type (HTTP 410 Gone) to the core tl_page DCA,
- * modeled after the built-in "error_404" page type.
+ * This file is part of Contao Redirects Bundle.
+ *
+ * (c) Hamid Peywasti
+ *
+ * @license MIT
  */
 
 $GLOBALS['TL_DCA']['tl_page']['palettes']['error_410'] =

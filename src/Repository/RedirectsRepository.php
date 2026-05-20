@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /*
- * This file is part of Contao Redirection Bundle.
+ * This file is part of Contao Redirects Bundle.
  *
  * (c) Hamid Peywasti
  *
