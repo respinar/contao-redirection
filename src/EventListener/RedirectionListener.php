@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Respinar\RedirectionBundle\EventListener;
+namespace Respinar\RedirectsBundle\EventListener;
 
 use Contao\CoreBundle\Exception\ResponseException;
 use Contao\CoreBundle\InsertTag\InsertTagParser;
 use Contao\CoreBundle\Routing\Page\PageRegistry;
 use Contao\CoreBundle\Routing\PageFinder;
 use Psr\Log\LoggerInterface;
-use Respinar\RedirectionBundle\Repository\RedirectionRepository;
+use Respinar\RedirectsBundle\Repository\RedirectsRepository;
 use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -40,7 +40,7 @@ final class RedirectionListener
     public function __construct(
         private readonly InsertTagParser $insertTagParser,
         private readonly LoggerInterface $logger,
-        private readonly RedirectionRepository $redirectionRepository,
+        private readonly RedirectsRepository $redirectsRepository,
         private readonly PageFinder $pageFinder,
         private readonly PageRegistry $pageRegistry,
         private readonly HttpKernelInterface $httpKernel,
@@ -82,31 +82,31 @@ final class RedirectionListener
         }
 
         try {
-            $redirections = $this->redirectionRepository->findPublished();
+            $redirects = $this->redirectsRepository->findPublished();
         } catch (\Throwable $e) {
             $this->logger->error('Redirection lookup failed.', ['exception' => $e]);
 
             return;
         }
 
-        foreach ($redirections as $redirection) {
+        foreach ($redirects as $redirect) {
             $matches = [];
 
-            if (!empty($redirection['wildcard'])) {
+            if (!empty($redirect['wildcard'])) {
                 // Wildcard mode: convert * to .*
-                $pattern = $this->wildcardToRegex((string) $redirection['source_url']);
+                $pattern = $this->wildcardToRegex((string) $redirect['source_url']);
 
                 if (!preg_match($pattern, $uri, $matches)) {
                     continue;
                 }
             } else {
                 // Exact match
-                if ($redirection['source_url'] !== $uri) {
+                if ($redirect['source_url'] !== $uri) {
                     continue;
                 }
             }
 
-            $this->applyResponse($event, $redirection, $matches);
+            $this->applyResponse($event, $redirect, $matches);
 
             return;
         }
@@ -126,9 +126,9 @@ final class RedirectionListener
         return '#^'.$pattern.'$#i';
     }
 
-    private function applyResponse(RequestEvent $event, array $redirection, array $matches): void
+    private function applyResponse(RequestEvent $event, array $redirect, array $matches): void
     {
-        $statusCode = (int) ($redirection['status_code'] ?? 301);
+        $statusCode = (int) ($redirect['status_code'] ?? 301);
 
         if (410 === $statusCode) {
             $event->setResponse($this->renderGoneResponse($event->getRequest()));
@@ -146,7 +146,7 @@ final class RedirectionListener
         $targetUrl = preg_replace_callback(
             '/\$(\d+)/',
             static fn (array $m): string => $matches[(int) $m[1]] ?? '',
-            $redirection['target_url'] ?? '',
+            $redirect['target_url'] ?? '',
         );
 
         // Resolve insert tags (e.g. {{link_url::4}}, {{link::4}}).
