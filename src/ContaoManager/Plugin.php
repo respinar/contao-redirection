@@ -10,20 +10,20 @@ declare(strict_types=1);
  * @license MIT
  */
 
-namespace Respinar\RedirectionBundle\ContaoManager;
+namespace Respinar\RedirectsBundle\ContaoManager;
 
 use Contao\CoreBundle\ContaoCoreBundle;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\Parser\ParserInterface;
-use Respinar\RedirectionBundle\RespinarRedirectionBundle;
+use Respinar\RedirectsBundle\RespinarRedirectsBundle;
 
 class Plugin implements BundlePluginInterface
 {
     public function getBundles(ParserInterface $parser): array
     {
         return [
-            BundleConfig::create(RespinarRedirectionBundle::class)
+            BundleConfig::create(RespinarRedirectsBundle::class)
                 ->setLoadAfter([ContaoCoreBundle::class]),
         ];
     }
