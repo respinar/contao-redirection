@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Respinar\RedirectionBundle\Controller\Page;
+namespace Respinar\RedirectsBundle\Controller\Page;
 
 use Contao\CoreBundle\Controller\Page\AbstractPageController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsPage;
