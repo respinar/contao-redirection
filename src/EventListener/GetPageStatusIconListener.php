@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Respinar\RedirectionBundle\EventListener;
+namespace Respinar\RedirectsBundle\EventListener;
 
 use Contao\CoreBundle\DependencyInjection\Attribute\AsHook;
 
@@ -15,7 +15,7 @@ class GetPageStatusIconListener
             return $image;
         }
 
-        $base = 'bundles/respinarredirection/icons/error_410';
+        $base = 'bundles/respinarredirects/icons/error_410';
 
         // Unpublished → use the _1 variant
         if (empty($page->published)) {
