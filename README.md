@@ -1,4 +1,4 @@
-# Contao Redirection Bundle
+# Contao Redirects Bundle
 
 A simple Contao extension for URL redirects (301, 302) and 410 (Gone) responses, similar to Yoast's redirects in WordPress.
 
@@ -11,7 +11,7 @@ A simple Contao extension for URL redirects (301, 302) and 410 (Gone) responses,
 ## Install
 
 ```bash
-composer require respinar/contao-redirection
+composer require respinar/contao-redirects
 ```
 
 ## Usage
