@@ -2,10 +2,10 @@
 <xliff version="1.1">
   <file datatype="php" original="contao/languages/en/modules.php" source-language="en">
     <body>
-      <trans-unit id="MOD.redirection.0">
-        <source>Redirection</source>
+      <trans-unit id="MOD.redirects.0">
+        <source>Redirects</source>
       </trans-unit>
-      <trans-unit id="MOD.redirection.1">
+      <trans-unit id="MOD.redirects.1">
         <source>Manage URL redirects (301, 302) and 410 Gone responses.</source>
       </trans-unit>
     </body>
