@@ -10,13 +10,13 @@ declare(strict_types=1);
  * @license MIT
  */
 
-namespace Respinar\RedirectionBundle;
+namespace Respinar\RedirectsBundle;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
 use Symfony\Component\HttpKernel\Bundle\AbstractBundle;
 
-class RespinarRedirectionBundle extends AbstractBundle
+class RespinarRedirectsBundle extends AbstractBundle
 {
     public function loadExtension(array $config, ContainerConfigurator $containerConfigurator, ContainerBuilder $containerBuilder): void
     {
