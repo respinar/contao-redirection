@@ -10,18 +10,18 @@ declare(strict_types=1);
  * @license MIT
  */
 
-namespace Respinar\RedirectionBundle\Repository;
+namespace Respinar\RedirectsBundle\Repository;
 
 use Doctrine\DBAL\Connection;
 
-final class RedirectionRepository
+final class RedirectsRepository
 {
     public function __construct(private readonly Connection $connection)
     {
     }
 
     /**
-     * Returns all published redirections.
+     * Returns all published redirects.
      *
      * @return array<int, array{
      *     id: int,
@@ -35,7 +35,7 @@ final class RedirectionRepository
     {
         return $this->connection->fetchAllAssociative(
             'SELECT id, source_url, wildcard, target_url, status_code
-             FROM tl_redirection
+             FROM tl_redirects
              WHERE published = ?',
             [1],
         );
