@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-  <file datatype="php" original="contao/languages/fa/tl_redirection.php" source-language="en" target-language="fa">
+  <file datatype="php" original="contao/languages/fa/tl_redirects.php" source-language="en" target-language="fa">
     <body>
-      <trans-unit id="tl_redirection.redirect_legend">
+      <trans-unit id="tl_redirects.redirect_legend">
         <target>تغییر مسیر</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.status_legend">
+      <trans-unit id="tl_redirects.status_legend">
         <target>نوع تغییر مسیر</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.settings_legend">
+      <trans-unit id="tl_redirects.settings_legend">
         <target>تنظیمات</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.source_url.0">
+      <trans-unit id="tl_redirects.source_url.0">
         <target>آدرس مبدأ</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.source_url.1">
+      <trans-unit id="tl_redirects.source_url.1">
         <target>مسیر URL که از آن تغییر مسیر داده می‌شود، بدون اسلش ابتدایی (مثلاً old page یا old-page).</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.target_url.0">
+      <trans-unit id="tl_redirects.target_url.0">
         <target>آدرس مقصد</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.target_url.1">
+      <trans-unit id="tl_redirects.target_url.1">
         <target>آدرس مقصد. می‌توانید از تگ‌های جایگزین (مثلاً {{link_url::4}}) یا جای‌نگهدارنده‌های wildcard ($1، $2 و ...) برای تطبیق wildcard استفاده کنید. برای 410 نادیده گرفته می‌شود.</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.wildcard.0">
+      <trans-unit id="tl_redirects.wildcard.0">
         <target>تطبیق وايلدکارت</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.wildcard.1">
+      <trans-unit id="tl_redirects.wildcard.1">
         <target>برای تطبیق آدرس مبدأ با استفاده از جای‌نگهدارنده‌های وايلدکارت/عبارت باقاعده علامت بزنید؛ در غیر این صورت تطبیق دقیق انجام می‌شود.</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.status_code.0">
+      <trans-unit id="tl_redirects.status_code.0">
         <target>کد وضعیت HTTP</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.status_code.1">
+      <trans-unit id="tl_redirects.status_code.1">
         <target>301 = دائمی، 302 = موقت، 410 = حذف شده.</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.published.0">
+      <trans-unit id="tl_redirects.published.0">
         <target>فعال</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.published.1">
+      <trans-unit id="tl_redirects.published.1">
         <target>فعال‌سازی این تغییر مسیر.</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.status_codes.301">
+      <trans-unit id="tl_redirects.status_codes.301">
         <target>301 - تغییر مسیر دائمی</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.status_codes.302">
+      <trans-unit id="tl_redirects.status_codes.302">
         <target>302 - تغییر مسیر موقت</target>
       </trans-unit>
-      <trans-unit id="tl_redirection.status_codes.410">
+      <trans-unit id="tl_redirects.status_codes.410">
         <target>410 - حذف شده</target>
       </trans-unit>
     </body>
