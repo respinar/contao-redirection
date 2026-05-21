@@ -6,7 +6,7 @@ A simple Contao extension for URL redirects (301, 302) and 410 (Gone) responses,
 - **Target URL**: absolute URL, relative path, page picker, insert tags (e.g. `{{link_url::4}}`), or wildcard placeholders (`$1`, `$2`, ...).
 - **Match type**: `exact` or `wildcard` (regular expression) matching.
 - **Status**: 301 (permanent), 302 (temporary), 410 (gone).
-- Manage via **System → Redirection** in the backend.
+- Manage via **System → Redirects** in the backend.
 
 ## Install
 
