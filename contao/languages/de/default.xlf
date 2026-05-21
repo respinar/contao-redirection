@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="contao/languages/de/default.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="PTY.error_410.0">
+        <target>410 Gone</target>
+      </trans-unit>
+      <trans-unit id="PTY.error_410.1">
+        <target>Zeigt eine „410 Gone“-Meldung, wenn eine Weiterleitungsregel mit dem Status 410 zutrifft.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
