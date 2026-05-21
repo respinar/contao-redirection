@@ -8,9 +8,6 @@
       <trans-unit id="tl_redirects.status_legend">
         <source>Redirect type</source>
       </trans-unit>
-      <trans-unit id="tl_redirects.settings_legend">
-        <source>Settings</source>
-      </trans-unit>
       <trans-unit id="tl_redirects.source_url.0">
         <source>Source URL</source>
       </trans-unit>
@@ -29,6 +26,9 @@
       <trans-unit id="tl_redirects.wildcard.1">
         <source>Check to match the source URL using wildcard placeholders/regular expressions; leave unchecked for an exact match.</source>
       </trans-unit>
+      <trans-unit id="tl_redirects.tstamp.0">
+        <source>Date</source>
+      </trans-unit>
       <trans-unit id="tl_redirects.status_code.0">
         <source>HTTP status</source>
       </trans-unit>
@@ -39,7 +39,7 @@
         <source>Published</source>
       </trans-unit>
       <trans-unit id="tl_redirects.published.1">
-        <source>Published this redirect.</source>
+        <source>Publish this redirect.</source>
       </trans-unit>
       <trans-unit id="tl_redirects.status_codes.301">
         <source>301 - Permanent redirect</source>
