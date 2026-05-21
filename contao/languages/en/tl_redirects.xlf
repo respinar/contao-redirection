@@ -18,16 +18,16 @@
         <source>Target URL</source>
       </trans-unit>
       <trans-unit id="tl_redirects.target_url.1">
-        <source>The destination URL. You may use insert tags (e.g. {{link_url::4}}) or wildcard placeholders ($1, $2, ...) for wildcard matches. Ignored for 410.</source>
+        <source>The destination URL. You may use insert tags (e.g. {{link_url::4}}) or a * to mirror the characters matched in the source. Ignored for 410.</source>
       </trans-unit>
       <trans-unit id="tl_redirects.wildcard.0">
         <source>Wildcard match</source>
       </trans-unit>
       <trans-unit id="tl_redirects.wildcard.1">
-        <source>Check to match the source URL using wildcard placeholders/regular expressions; leave unchecked for an exact match.</source>
+        <source>Check to match the source URL using * as a placeholder for any characters; leave unchecked for an exact match.</source>
       </trans-unit>
       <trans-unit id="tl_redirects.tstamp.0">
-        <source>Date</source>
+        <source>Date added</source>
       </trans-unit>
       <trans-unit id="tl_redirects.status_code.0">
         <source>HTTP status</source>
