@@ -18,16 +18,16 @@
         <target>آدرس مقصد</target>
       </trans-unit>
       <trans-unit id="tl_redirects.target_url.1">
-        <target>آدرس مقصد. می‌توانید از تگ‌های جایگزین (مثلاً {{link_url::4}}) یا جای‌نگهدارنده‌های wildcard ($1، $2 و ...) برای تطبیق wildcard استفاده کنید. برای 410 نادیده گرفته می‌شود.</target>
+        <target>آدرس مقصد. می‌توانید از تگ‌های جایگزین (مثلاً {{link_url::4}}) یا * برای انعکاس کاراکترهای مطابقت‌یافته در مبدأ استفاده کنید. برای 410 نادیده گرفته می‌شود.</target>
       </trans-unit>
       <trans-unit id="tl_redirects.wildcard.0">
         <target>تطبیق وايلدکارت</target>
       </trans-unit>
       <trans-unit id="tl_redirects.wildcard.1">
-        <target>برای تطبیق آدرس مبدأ با استفاده از جای‌نگهدارنده‌های وايلدکارت/عبارت باقاعده علامت بزنید؛ در غیر این صورت تطبیق دقیق انجام می‌شود.</target>
+        <target>برای تطبیق آدرس مبدأ با استفاده از * به عنوان جای‌نگهدارنده برای هر کاراکتری علامت بزنید؛ در غیر این صورت تطبیق دقیق انجام می‌شود.</target>
       </trans-unit>
       <trans-unit id="tl_redirects.tstamp.0">
-        <target>تاریخ</target>
+        <target>تاریخ افزودن</target>
       </trans-unit>
       <trans-unit id="tl_redirects.status_code.0">
         <target>کد وضعیت HTTP</target>
