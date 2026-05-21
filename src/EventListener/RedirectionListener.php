@@ -122,14 +122,17 @@ final class RedirectionListener
 
     /**
      * Converts a simple wildcard pattern (* = any characters) into a regex.
+     *
+     * Each * becomes a capture group so that a * in the target URL can mirror the
+     * characters matched at the same position in the source.
      */
     private function wildcardToRegex(string $source): string
     {
         // Escape all regex special characters first
         $escaped = preg_quote($source, '#');
 
-        // Turn the escaped \* back into a real wildcard
-        $pattern = str_replace('\*', '.*', $escaped);
+        // Turn each escaped \* into a capturing wildcard
+        $pattern = str_replace('\*', '(.*)', $escaped);
 
         return '#^'.$pattern.'$#i';
     }
@@ -144,17 +147,28 @@ final class RedirectionListener
             return;
         }
 
-        if (!\in_array($statusCode, [301, 302, 303, 307, 308], true)) {
+        if (!\in_array($statusCode, [301, 302], true)) {
             return;
         }
 
         $request = $event->getRequest();
 
-        // Substitute wildcard subpatterns ($1, $2, ...) into the target.
+        // Mirror each * in the target with the characters matched at the same position
+        // in the source (each * in the source is a capture group).
+        $wildcardIndex = 0;
+        $targetUrl = preg_replace_callback(
+            '/\*/',
+            static function () use ($matches, &$wildcardIndex): string {
+                return $matches[++$wildcardIndex] ?? '';
+            },
+            $redirect['target_url'] ?? '',
+        );
+
+        // Also support $1, $2, ... placeholders for convenience.
         $targetUrl = preg_replace_callback(
             '/\$(\d+)/',
             static fn (array $m): string => $matches[(int) $m[1]] ?? '',
-            $redirect['target_url'] ?? '',
+            $targetUrl,
         );
 
         // Resolve insert tags (e.g. {{link_url::4}}, {{link::4}}).
