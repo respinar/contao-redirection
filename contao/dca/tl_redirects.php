@@ -12,11 +12,24 @@ declare(strict_types=1);
 
 use Contao\DataContainer;
 use Contao\DC_Table;
+use Respinar\RedirectsBundle\Repository\RedirectsRepository;
 
 $GLOBALS['TL_DCA']['tl_redirects'] = [
     'config' => [
         'dataContainer' => DC_Table::class,
         'enableVersioning' => true,
+        'oncreate_callback' => [
+            [RedirectsRepository::class, 'clearCache'],
+        ],
+        'ondelete_callback' => [
+            [RedirectsRepository::class, 'clearCache'],
+        ],
+        'oncut_callback' => [
+            [RedirectsRepository::class, 'clearCache'],
+        ],
+        'onsubmit_callback' => [
+            [RedirectsRepository::class, 'clearCache'],
+        ],
         'sql' => [
             'keys' => [
                 'id' => 'primary',
@@ -26,6 +39,7 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
     ],
     'list' => [
         'sorting' => [
+            'mode' => DataContainer::MODE_SORTABLE,
             'fields' => ['tstamp'],
             'flag' => DataContainer::SORT_DESC,
             'panelLayout' => 'filter;sort,search,limit',
