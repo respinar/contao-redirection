@@ -18,16 +18,16 @@
         <target>Ziel-URL</target>
       </trans-unit>
       <trans-unit id="tl_redirects.target_url.1">
-        <target>Die Ziel-URL. Sie können Insert-Tags (z. B. {{link_url::4}}) oder Wildcard-Platzhalter ($1, $2, ...) für Wildcard-Übereinstimmungen verwenden. Bei 410 ignoriert.</target>
+        <target>Die Ziel-URL. Sie können Insert-Tags (z. B. {{link_url::4}}) oder einen * verwenden, um die in der Quelle gefundenen Zeichen zu spiegeln. Bei 410 ignoriert.</target>
       </trans-unit>
       <trans-unit id="tl_redirects.wildcard.0">
         <target>Wildcard-Übereinstimmung</target>
       </trans-unit>
       <trans-unit id="tl_redirects.wildcard.1">
-        <target>Aktivieren, um die Quell-URL mithilfe von Wildcard-Platzhaltern bzw. regulären Ausdrücken abzugleichen; deaktivieren für eine exakte Übereinstimmung.</target>
+        <target>Aktivieren, um die Quell-URL mit * als Platzhalter für beliebige Zeichen abzugleichen; deaktivieren für eine exakte Übereinstimmung.</target>
       </trans-unit>
       <trans-unit id="tl_redirects.tstamp.0">
-        <target>Datum</target>
+        <target>Hinzugefügt am</target>
       </trans-unit>
       <trans-unit id="tl_redirects.status_code.0">
         <target>HTTP-Status</target>
