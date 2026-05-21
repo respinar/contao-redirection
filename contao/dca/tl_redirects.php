@@ -43,39 +43,33 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
     ],
     'fields' => [
         'id' => [
-            'sql' => 'int(10) unsigned NOT NULL auto_increment',
+            'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'autoincrement' => true],
         ],
         'tstamp' => [
-            'sql' => "int(10) unsigned NOT NULL default '0'",
+            'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'default' => 0],
         ],
         'status_code' => [
             'inputType' => 'select',
             'options' => ['301', '302', '410'],
-            'reference' => &$GLOBALS['TL_LANG']['tl_redirection']['status_codes'],
+            'reference' => &$GLOBALS['TL_LANG']['tl_redirects']['status_codes'],
             'eval' => ['submitOnChange' => true, 'tl_class' => 'w50'],
-            'sql' => "varchar(3) NOT NULL default '301'",
+            'sql' => ['type' => 'string', 'length' => 3, 'notnull' => true, 'default' => '301'],
         ],
         'source_url' => [
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255, 'decodeEntities' => true],
-            'sql' => "varchar(255) NOT NULL default ''",
+            'sql' => ['type' => 'string', 'length' => 255, 'notnull' => true, 'default' => ''],
         ],
         'wildcard' => [
             'inputType' => 'checkbox',
             'eval' => ['tl_class' => 'w50 m12'],
-            'sql' => "char(1) NOT NULL default ''",
+            'sql' => ['type' => 'boolean', 'default' => false],
         ],
         'target_url' => [
             'search' => true,
             'inputType' => 'text',
-            'eval' => [
-                'mandatory' => true,
-                'decodeEntities' => true,
-                'maxlength' => 2048,
-                'dcaPicker' => true,
-                'tl_class' => 'w50',
-            ],
-            'sql' => "varchar(2048) NOT NULL default ''",
+            'eval' => ['mandatory' => true, 'decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w50'],
+            'sql' => ['type' => 'string', 'length' => 2048, 'notnull' => true, 'default' => ''],
         ],
         'published' => [
             'toggle' => true,
