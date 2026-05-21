@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file datatype="php" original="contao/languages/de/tl_redirects.php" source-language="en" target-language="de">
+    <body>
+      <trans-unit id="tl_redirects.redirect_legend">
+        <target>Weiterleitung</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.status_legend">
+        <target>Weiterleitungstyp</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.source_url.0">
+        <target>Quell-URL</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.source_url.1">
+        <target>Der URL-Pfad, von dem weitergeleitet werden soll, ohne führenden Schrägstrich (z. B. alte-seite oder alte-seite.html).</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.target_url.0">
+        <target>Ziel-URL</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.target_url.1">
+        <target>Die Ziel-URL. Sie können Insert-Tags (z. B. {{link_url::4}}) oder Wildcard-Platzhalter ($1, $2, ...) für Wildcard-Übereinstimmungen verwenden. Bei 410 ignoriert.</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.wildcard.0">
+        <target>Wildcard-Übereinstimmung</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.wildcard.1">
+        <target>Aktivieren, um die Quell-URL mithilfe von Wildcard-Platzhaltern bzw. regulären Ausdrücken abzugleichen; deaktivieren für eine exakte Übereinstimmung.</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.tstamp.0">
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.status_code.0">
+        <target>HTTP-Status</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.status_code.1">
+        <target>301 = dauerhaft, 302 = temporär, 410 = weg.</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.published.0">
+        <target>Veröffentlicht</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.published.1">
+        <target>Diese Weiterleitung veröffentlichen.</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.status_codes.301">
+        <target>301 - Dauerhafte Weiterleitung</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.status_codes.302">
+        <target>302 - Temporäre Weiterleitung</target>
+      </trans-unit>
+      <trans-unit id="tl_redirects.status_codes.410">
+        <target>410 - Gone</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
