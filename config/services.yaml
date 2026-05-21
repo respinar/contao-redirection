@@ -3,6 +3,14 @@ services:
         autoconfigure: true
         autowire: true
 
+    # Resolve the PSR-6 cache pool unambiguously to the application cache
+    Psr\Cache\CacheItemPoolInterface: '@cache.app'
+
     Respinar\RedirectsBundle\:
         resource: ../src/
         exclude: ../src/ContaoManager/
+
+    # Public so that the DCA callbacks in tl_redirects.php can resolve it via the
+    # container at runtime (private services may be inlined during compilation).
+    Respinar\RedirectsBundle\Repository\RedirectsRepository:
+        public: true
