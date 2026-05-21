@@ -8,9 +8,6 @@
       <trans-unit id="tl_redirects.status_legend">
         <target>نوع تغییر مسیر</target>
       </trans-unit>
-      <trans-unit id="tl_redirects.settings_legend">
-        <target>تنظیمات</target>
-      </trans-unit>
       <trans-unit id="tl_redirects.source_url.0">
         <target>آدرس مبدأ</target>
       </trans-unit>
@@ -29,6 +26,9 @@
       <trans-unit id="tl_redirects.wildcard.1">
         <target>برای تطبیق آدرس مبدأ با استفاده از جای‌نگهدارنده‌های وايلدکارت/عبارت باقاعده علامت بزنید؛ در غیر این صورت تطبیق دقیق انجام می‌شود.</target>
       </trans-unit>
+      <trans-unit id="tl_redirects.tstamp.0">
+        <target>تاریخ</target>
+      </trans-unit>
       <trans-unit id="tl_redirects.status_code.0">
         <target>کد وضعیت HTTP</target>
       </trans-unit>
@@ -39,7 +39,7 @@
         <target>فعال</target>
       </trans-unit>
       <trans-unit id="tl_redirects.published.1">
-        <target>فعال‌سازی این تغییر مسیر.</target>
+        <target>این تغییر مسیر را منتشر کنید.</target>
       </trans-unit>
       <trans-unit id="tl_redirects.status_codes.301">
         <target>301 - تغییر مسیر دائمی</target>
