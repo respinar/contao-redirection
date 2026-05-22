@@ -71,8 +71,8 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
         ],
         'source_url' => [
             'inputType' => 'text',
-            'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255, 'decodeEntities' => true],
-            'sql' => ['type' => 'string', 'length' => 255, 'notnull' => true, 'default' => '', 'unique' => true],
+            'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255, 'decodeEntities' => true, 'unique'=>true],
+            'sql' => ['type' => 'string', 'length' => 255, 'notnull' => true, 'default' => ''],
         ],
         'wildcard' => [
             'inputType' => 'checkbox',
