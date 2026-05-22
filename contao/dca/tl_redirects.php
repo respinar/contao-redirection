@@ -40,8 +40,8 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
     'list' => [
         'sorting' => [
             'mode' => DataContainer::MODE_SORTABLE,
-            'fields' => ['tstamp'],
-            'flag' => DataContainer::SORT_DESC,
+            'fields' => ['dateAdded'],
+            'flag' => DataContainer::SORT_DAY_DESC,
             'panelLayout' => 'filter;sort,search,limit',
         ],
         'label' => [
@@ -59,7 +59,11 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
         'id' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'autoincrement' => true],
         ],
-        'tstamp' => [
+        'dateAdded' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_redirects']['dateAdded'],
+            'sorting' => true,
+            'flag' => DataContainer::SORT_DAY_DESC,
+            'eval' => ['rgxp' => 'datim', 'doNotCopy' => true],
             'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'default' => 0],
         ],
         'status_code' => [
