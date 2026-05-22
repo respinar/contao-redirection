@@ -45,7 +45,7 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
             'panelLayout' => 'filter;sort,search,limit',
         ],
         'label' => [
-            'fields' => ['source_url', 'wildcard', 'target_url', 'status_code'],
+            'fields' => ['source_url', 'wildcard', 'target_url', 'status_code', 'dateAdded'],
             'showColumns' => true,
         ],
     ],
@@ -90,7 +90,7 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
             'sql' => ['type' => 'string', 'length' => 2048, 'notnull' => true, 'default' => ''],
         ],
         'dateAdded' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_redirects']['dateAdded'],
+            'default' => time(),
             'sorting' => true,
             'flag' => DataContainer::SORT_DAY_DESC,
             'eval' => ['rgxp' => 'datim', 'doNotCopy' => true],
