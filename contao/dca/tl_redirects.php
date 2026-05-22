@@ -63,6 +63,7 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
         ],
         'status_code' => [
+            'filter' => true,
             'inputType' => 'select',
             'options' => ['301', '302', '410'],
             'reference' => &$GLOBALS['TL_LANG']['tl_redirects']['status_codes'],
@@ -70,11 +71,14 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
             'sql' => ['type' => 'string', 'length' => 3, 'notnull' => true, 'default' => '301'],
         ],
         'source_url' => [
+            'search' => true,
+            'sorting' => true,
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'tl_class' => 'w50', 'maxlength' => 255, 'decodeEntities' => true, 'unique'=>true],
             'sql' => ['type' => 'string', 'length' => 255, 'notnull' => true, 'default' => ''],
         ],
         'wildcard' => [
+            'filter' => true,
             'inputType' => 'checkbox',
             'eval' => ['tl_class' => 'w50 m12'],
             'sql' => ['type' => 'boolean', 'default' => false],
