@@ -26,7 +26,7 @@
       <trans-unit id="tl_redirects.wildcard.1">
         <target>برای تطبیق آدرس مبدأ با استفاده از * به عنوان جای‌نگهدارنده برای هر کاراکتری علامت بزنید؛ در غیر این صورت تطبیق دقیق انجام می‌شود.</target>
       </trans-unit>
-      <trans-unit id="tl_redirects.tstamp.0">
+      <trans-unit id="tl_redirects.dateAdded.0">
         <target>تاریخ افزودن</target>
       </trans-unit>
       <trans-unit id="tl_redirects.status_code.0">

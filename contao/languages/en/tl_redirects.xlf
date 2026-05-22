@@ -26,7 +26,7 @@
       <trans-unit id="tl_redirects.wildcard.1">
         <source>Check to match the source URL using * as a placeholder for any characters; leave unchecked for an exact match.</source>
       </trans-unit>
-      <trans-unit id="tl_redirects.tstamp.0">
+      <trans-unit id="tl_redirects.dateAdded.0">
         <source>Date added</source>
       </trans-unit>
       <trans-unit id="tl_redirects.status_code.0">
