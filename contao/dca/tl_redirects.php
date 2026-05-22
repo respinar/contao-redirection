@@ -59,12 +59,8 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
         'id' => [
             'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'autoincrement' => true],
         ],
-        'dateAdded' => [
-            'label' => &$GLOBALS['TL_LANG']['tl_redirects']['dateAdded'],
-            'sorting' => true,
-            'flag' => DataContainer::SORT_DAY_DESC,
-            'eval' => ['rgxp' => 'datim', 'doNotCopy' => true],
-            'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'default' => 0],
+        'tstamp' => [
+            'sql' => ['type' => 'integer', 'unsigned' => true, 'default' => 0],
         ],
         'status_code' => [
             'inputType' => 'select',
@@ -88,6 +84,13 @@ $GLOBALS['TL_DCA']['tl_redirects'] = [
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'decodeEntities' => true, 'maxlength' => 2048, 'dcaPicker' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 2048, 'notnull' => true, 'default' => ''],
+        ],
+        'dateAdded' => [
+            'label' => &$GLOBALS['TL_LANG']['tl_redirects']['dateAdded'],
+            'sorting' => true,
+            'flag' => DataContainer::SORT_DAY_DESC,
+            'eval' => ['rgxp' => 'datim', 'doNotCopy' => true],
+            'sql' => ['type' => 'integer', 'unsigned' => true, 'notnull' => true, 'default' => 0],
         ],
         'published' => [
             'toggle' => true,
