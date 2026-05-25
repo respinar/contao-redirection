@@ -30,6 +30,8 @@ Each `*` in the target mirrors the characters matched at the same position in th
 
 When the status is set to `410`, no redirect is performed and a `410 Gone` response is returned instead. The target URL is then ignored.
 
+The optional **410 Gone** page (page type `410 Gone`) renders the response. Just like Contao's built-in 401, 403 and 404 pages, only **one** 410 page is allowed per site root — as soon as a root has a 410 page, the `410 Gone` option is removed from the page type selection for that root, and it becomes available again once the page is deleted.
+
 ## License
 
 Licensed under the MIT License (LICENSE).
