@@ -16,7 +16,6 @@ use Contao\CoreBundle\Controller\Page\AbstractPageController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsPage;
 use Contao\CoreBundle\Routing\Page\ContentCompositionInterface;
 use Contao\PageModel;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -28,7 +27,7 @@ use Symfony\Component\HttpFoundation\Response;
 #[AsPage('error_410', path: false)]
 class GonePageController extends AbstractPageController implements ContentCompositionInterface
 {
-    public function __invoke(PageModel $pageModel, Request $request): Response
+    public function __invoke(PageModel $pageModel): Response
     {
         return $this->renderPage($pageModel)->setStatusCode(Response::HTTP_GONE);
     }
